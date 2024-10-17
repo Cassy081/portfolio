@@ -18,7 +18,10 @@ nav{
   border-bottom-width: 1px;
   border-bottom-style: solid;
   border-bottom-color: oklch(80% 3% 200);
-}
+  --border-color: oklch(50% 10% 200 / 40%);
+  border-bottom-color: var(--border-color);
+  }
+
 
 nav a{
   flex: 1;
@@ -40,7 +43,7 @@ nav a{
 
 nav a:hover {
   border-bottom: 0.4em solid var(--color-accent);
-  background-color: oklch(from var(--color-accent) 95% 5% h);
+  background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
 }
 
 /* Contact Form Display */
@@ -49,6 +52,7 @@ form {
   display: grid; 
   grid-template-columns: auto 1fr; 
   gap: 1em; 
+  outline-style: inherit;
 }
 
 label{
@@ -56,6 +60,10 @@ label{
   grid-template-columns: subgrid;
   grid-column: 1 / -1;
   gap: 1em;
+}
+
+input, textarea, button, select{
+  font-family: inherit;
 }
 
 /* Project Page Dispaly */
@@ -91,4 +99,19 @@ section {
   padding: 20px;
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+html {
+  color-scheme: light dark; 
+  background-color: Canvas; 
+  color: CanvasText; 
+}
+
+.color-scheme {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.2rem;
+  font-size: 80%;
+  font-family: inherit;
 }
